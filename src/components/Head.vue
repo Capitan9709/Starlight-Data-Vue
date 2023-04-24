@@ -3,10 +3,10 @@
 </script>
 
 <template>
-    <header class="bg-stone-600">
+    <header class="py-4 text-black">
         <nav>
             <ul class="flex flex-row justify-center gap-4">
-                <li>Inicio</li>
+                <li>Home</li>
                 <li>Mars</li>
                 <li>Exoplanet</li>
             </ul>
