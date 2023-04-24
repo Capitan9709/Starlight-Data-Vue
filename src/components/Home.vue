@@ -74,8 +74,10 @@ if (docSnap.exists()) {
   <div class="home bg-local bg-no-repeat bg-center">
     <p>Esto es una prueba</p>
     <div class="flex flex-col items-center justify-center my-4 w-screen">
-        <img class="w-40" alt="imagen astronomica del dia" :src="imagenDia">
-        <h3>{{tituloImagenDia}}</h3>
+        <div class="bg-cover h-auto w-1/3 bg-slate-700 rounded-md">
+          <img class="bg-cover bg-center rounded-md" alt="imagen astronomica del dia" :src="imagenDia">
+        </div>
+        <h3 class="rounded px-2 mt-3 bg-slate-700">{{tituloImagenDia}}</h3>
     </div>
     {{ currentDate }}
   </div>
