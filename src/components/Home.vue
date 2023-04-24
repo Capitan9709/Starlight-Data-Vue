@@ -3,7 +3,8 @@ import Head from './Head.vue';
 import Foot from './Foot.vue';
 import { getAPOD } from '../nasaApi.js';
 import { ref } from 'vue';
-import { db, useCollection } from '@/firebase.js';
+import { db } from '@/firebase.js';
+import { collection, addDoc, getDocs, doc, getDoc, setDoc } from "firebase/firestore";
 
 const date = new Date()
 const year = date.getFullYear()
@@ -12,47 +13,69 @@ const day = ('0' + date.getDate()).slice(-2)
 const currentDate = `${year}-${month}-${day}`
 
 const imagenDia = ref('');
+const tituloImagenDia = ref('');
+const fechaimagenDia = ref('');
+const descripcionImagenDia = ref('');
 
-const fechaColeccion = db.collection('APODs').doc(fecha);
 
-fechaColeccion.get().then((doc) => {
-  if (doc.exists) {
-    // El documento ya existe, obtenemos los datos
-    console.log('El documento ya existe');
-    const data = doc.data();
-    imagenDia.value = data.hdurl;
-  } else {
-    // El documento no existe, llamamos a getAPOD para obtener los datos
-    console.log('El documento no existe');
+// const querySnapshot = await getDocs(collection(db, "APODs"));
+// querySnapshot.forEach((doc) => {
+//   console.log(doc.id, " => ", doc.data());
+// });
+
+const docRef = doc(db, "APODs", currentDate);
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  console.log("Existe el documento, mostrando datos...");
+  console.log("Datos del documento:", docSnap.data());
+  
+  imagenDia.value = docSnap.data().imagen;
+  tituloImagenDia.value = docSnap.data().titulo;
+  fechaimagenDia.value = docSnap.data().fecha;
+  descripcionImagenDia.value = docSnap.data().descripcion;
+
+} else {
+  console.log("No existe el documento, creando...");
+
+  try {
+    
     getAPOD()
       .then((data) => {
         imagenDia.value = data.hdurl;
-        // Guardamos los datos en Firebase
-        const apodData = {
-          date: data.date,
-          explanation: data.explanation,
-          hdurl: data.hdurl,
-          title: data.title
-        };
-        db.collection('APODs').doc(fecha).set(apodData);
+        tituloImagenDia.value = data.title;
+        fechaimagenDia.value = data.date;
+        descripcionImagenDia.value = data.explanation;
+
+      setDoc(doc(db, "APODs", currentDate), {
+        fecha: fechaimagenDia.value,
+        titulo: tituloImagenDia.value,
+        imagen: imagenDia.value,
+        descripcion: descripcionImagenDia.value,
+      });
       })
       .catch((error) => {
         console.error(error);
       });
+
+    console.log("El documento se ha creado");
+  } catch (e) {
+    console.error("Error adding document: ", e);
   }
-}).catch((error) => {
-  console.error(error);
-});
+}
+
+
 
 
 </script>
 
 <template>
   <Head />
-  <div class="home">
+  <div class="home bg-local bg-no-repeat bg-center">
     <p>Esto es una prueba</p>
-    <div class="flex justify-center my-4 w-screen">
+    <div class="flex flex-col items-center justify-center my-4 w-screen">
         <img class="w-40" alt="imagen astronomica del dia" :src="imagenDia">
+        <h3>{{tituloImagenDia}}</h3>
     </div>
     {{ currentDate }}
   </div>
@@ -60,5 +83,29 @@ fechaColeccion.get().then((doc) => {
 </template>
 
 <style scoped>
+.home {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  animation: change-background 20s infinite;
+}
 
+@keyframes change-background {
+  0% {
+      background-image: url(../assets/espacio.jpg);
+  }
+
+  33% {
+      background-image: url(../assets/espacio2.jpg);
+  }
+
+  66% {
+      background-image: url(../assets/espacio3.jpg);
+  }
+
+  100% {
+      background-image: url(../assets/espacio.jpg);
+  }
+}
 </style>
