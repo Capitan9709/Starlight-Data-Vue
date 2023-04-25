@@ -138,7 +138,6 @@ if (asteroidSnap.exists()) {
               <li v-for="acercamiento in asteroide.close_approach_data">
                 <p><b>Full Date of close approach:</b> {{ acercamiento.close_approach_date_full }}</p>
                 <p><b>Kilometers per Hour:</b> {{ parseFloat(acercamiento.relative_velocity.kilometers_per_hour).toFixed(2) }} Km/h</p>
-                <p><b>Miss Distance:</b> {{ parseFloat(acercamiento.miss_distance.kilometers).toFixed(2) }} Km</p>
               </li>
             </ul>
 

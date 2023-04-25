@@ -14,7 +14,7 @@
             </div>
             <div class="flex flex-row gap-5 justify-center">
                 <a id="icons" href="https://twitter.com/" target="_blank" class="px-2 py-1 hover:text-blue-500"><i class="fa-brands fa-twitter scale-150"></i></a>
-                <a id="icons" href="https://instagram.com/" target="_blank" class="px-2 py-1 rounded-lg hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-tr from-amber-400 from-10% via-orange-500 via-35% to-purple-600 to-90%"><i class="fa-brands fa-instagram scale-150"></i></a>
+                <a id="icons" href="https://instagram.com/" target="_blank" class="px-2 py-1 rounded-lg hover:bg-gradient-to-tr from-amber-400 from-10% via-orange-500 via-35% to-purple-600 to-90%"><i class="fa-brands fa-instagram scale-150"></i></a>
                 <a id="icons" href="https://facebook.com/" target="_blank" class="px-2 py-1 hover:text-blue-800"><i class="fa-brands fa-facebook scale-150"></i></a>
             </div>
         </div>
