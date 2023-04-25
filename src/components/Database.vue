@@ -68,7 +68,7 @@ if (asteroidSnap.exists()) {
                 </div>
                 <!-- asteroids from yesterday -->
                 <div class="mt-24 w-3/4 flex flex-col justify-center items-center">
-                    <h2 class="text-2xl font-bold text-center">Yesterday Asteroids</h2>
+                    <h2 class="text-2xl font-bold text-center">Last 3 Asteroids from Yesterday</h2>
                     <div class="flex flex-col items-center justify-center my-4">
                         <ul class="flex flex-row flex-wrap gap-3 justify-center items-center">
                             <li v-for="asteroide in asteroidesAyer.slice(asteroidesAyer.length - 3, asteroidesAyer.length)" :key="asteroide.id" class="text-center bg-indigo-950 p-3 rounded-md">
