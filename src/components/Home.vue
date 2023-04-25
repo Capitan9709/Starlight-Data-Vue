@@ -112,33 +112,33 @@ if (asteroidSnap.exists()) {
 
 <template>
   <Head />
-  <div class="home text-white flex flex-col items-center justify-center bg-local bg-no-repeat bg-center">
+  <div class="home text-white flex flex-col items-center justify-center bg-local bg-no-repeat bg-center pt-10">
     
     <h1 class="text-2xl font-bold mt-4">Image of the Day</h1>
     <div class="flex flex-col items-center justify-center my-4">
-        <div class="py-2 px-2 bg-cover h-auto w-1/3 bg-slate-700 rounded-md">
+        <div class="py-2 px-2 bg-cover h-auto w-1/3 bg-indigo-950 rounded-md">
           <img class="bg-cover bg-center rounded-md" alt="imagen astronomica del dia" :src="imagenDia">
         </div>
-        <h3 class="rounded px-2 mt-2 bg-slate-700">{{tituloImagenDia}}</h3>
+        <h3 class="rounded px-2 mt-2 bg-indigo-950 font-semibold">{{tituloImagenDia}}</h3>
     </div>
 
     <div class="mt-4 w-4/5">
       <h2 class="text-2xl font-bold text-center">Asteroids Near Earth</h2>
       <div class="flex flex-col items-center justify-center my-4">
         <ul class="flex flex-row flex-wrap gap-3 justify-center items-center">
-          <li v-for="asteroide in asteroides" :key="asteroide.id" class="text-center bg-slate-700 p-3 rounded-md">
+          <li v-for="asteroide in asteroides" :key="asteroide.id" class="text-center bg-indigo-950 p-3 rounded-md">
             
-            <p class="border-b-2 border-gray-400">Name: {{ asteroide.name }}</p>
-            <p v-if="asteroide.is_potentially_hazardous_asteroid == true" class="border-b-2 border-gray-400">Is Hazardous</p>
-            <p v-else class="border-b-2 border-gray-400">Is Not Hazardous</p>
-            <p>Max. Estimated Diameter: {{ parseFloat(asteroide.estimated_diameter.meters.estimated_diameter_max).toFixed(2) }} m</p>
-            <p class="border-b-2 border-gray-400">Min. Estimated Diameter: {{ parseFloat(asteroide.estimated_diameter.meters.estimated_diameter_min).toFixed(2) }} m</p>
+            <p class="border-b-2 border-gray-700"><b>Name:</b> {{ asteroide.name }}</p>
+            <p v-if="asteroide.is_potentially_hazardous_asteroid == true" class="border-b-2 border-gray-700"><b>Is Hazardous</b></p>
+            <p v-else class="border-b-2 border-gray-700">Is <b>Not</b> Hazardous</p>
+            <p><b>Max. Estimated Diameter:</b> {{ parseFloat(asteroide.estimated_diameter.meters.estimated_diameter_max).toFixed(2) }} m</p>
+            <p class="border-b-2 border-gray-700"><b>Min. Estimated Diameter:</b> {{ parseFloat(asteroide.estimated_diameter.meters.estimated_diameter_min).toFixed(2) }} m</p>
             
             <ul>
               <li v-for="acercamiento in asteroide.close_approach_data">
-                <p>Full Date of close approach: {{ acercamiento.close_approach_date_full }}</p>
-                <p>Kilometers per Hour: {{ parseFloat(acercamiento.relative_velocity.kilometers_per_hour).toFixed(2) }} Km/h</p>
-                <p>Miss Distance: {{ parseFloat(acercamiento.miss_distance.kilometers).toFixed(2) }} Km</p>
+                <p><b>Full Date of close approach:</b> {{ acercamiento.close_approach_date_full }}</p>
+                <p><b>Kilometers per Hour:</b> {{ parseFloat(acercamiento.relative_velocity.kilometers_per_hour).toFixed(2) }} Km/h</p>
+                <p><b>Miss Distance:</b> {{ parseFloat(acercamiento.miss_distance.kilometers).toFixed(2) }} Km</p>
               </li>
             </ul>
 
