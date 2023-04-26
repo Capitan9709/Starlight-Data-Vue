@@ -72,15 +72,16 @@ function nextImage() {
                     <div class="rover-data">
                         <div v-if="Object.keys(roverData).length > 0">
                             <div class="image-container">
-                                <img :src="roverData.photos[currentIndex].img_src" alt="Rover Image" />
-                                <div class="camera-name">{{ roverData.photos[currentIndex].camera.full_name }}</div>
+                                <img :src="roverData.photos[selectedImageIndex].img_src" alt="Rover Image" />
+                                <div class="camera-name">{{ roverData.photos[selectedImageIndex].camera.full_name }}</div>
                                 <div class="image-nav">
-                                <button class="previous-button" :disabled="currentIndex === 0" @click="previousImage">
-                                    Anterior
-                                </button>
-                                <button class="next-button" :disabled="currentIndex === roverData.photos.length - 1" @click="nextImage">
-                                    Siguiente
-                                </button>
+                                    <button class="previous-button" :disabled="selectedImageIndex === 0" @click="previousImage">
+                                        Anterior
+                                    </button>
+                                    <button class="next-button" :disabled="selectedImageIndex === roverData.value.photos.length - 1" @click="nextImage">
+                                        Siguiente
+                                    </button>
+                                    
                                 </div>
                             </div>
                             <div class="rover-info">
