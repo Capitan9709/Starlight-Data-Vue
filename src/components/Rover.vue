@@ -104,11 +104,11 @@ function nextImage() {
                                 <img class="rounded" :src="roverData.photos[selectedImageIndex].img_src" alt="Rover Image" />
                                 <div class="py-2 image-nav flex flex-row justify-between">
                                     <button class="previous-button bg-indigo-600 py-1 px-2 rounded-md hover:bg-indigo-700" :disabled="selectedImageIndex === 0" @click="previousImage">
-                                        Previous
+                                        <i class="fa-solid fa-left-long"></i> Previous
                                     </button>
                                     <p>Image Nº {{ selectedImageIndex + 1 }} </p>
                                     <button class="next-button bg-indigo-600 py-1 px-2 rounded-md hover:bg-indigo-700" :disabled="selectedImageIndex === roverData.photos.length - 1" @click="nextImage">
-                                        Next
+                                        Next <i class="fa-solid fa-right-long"></i>
                                     </button>
                                     
                                 </div>
