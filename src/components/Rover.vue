@@ -9,6 +9,7 @@ const roverData = ref([]);
 const selectedRover = ref('Curiosity');
 const selectedDate = ref('');
 const currentIndex = ref(0);
+const selectedImageIndex = ref(0);
 
 function getRoverData(rover, selectedDate) {
     try {
@@ -71,7 +72,7 @@ function nextImage() {
                     <div class="rover-data">
                         <div v-if="Object.keys(roverData).length > 0">
                             <div class="image-container">
-                                <img :src="roverData.photos.img_src" alt="Rover Image" />
+                                <img :src="roverData.photos[currentIndex].img_src" alt="Rover Image" />
                                 <div class="camera-name">{{ roverData.photos[currentIndex].camera.full_name }}</div>
                                 <div class="image-nav">
                                 <button class="previous-button" :disabled="currentIndex === 0" @click="previousImage">
