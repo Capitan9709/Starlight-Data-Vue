@@ -7,11 +7,13 @@ import './assets/main.css'
 import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Database from './components/Database.vue'
+import Rover from './components/Rover.vue'
 
 const routes = [
     { path: '/', component: Home, name: 'Home' },
     { path: '/about', component: About, name: 'About' },
     { path: '/database', component: Database, name: 'Database' },
+    { path: '/rover', component: Rover, name: 'Rover' },
 ]
 
 const router = createRouter({

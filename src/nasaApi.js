@@ -30,3 +30,14 @@ export const getAsteroids = async () => {
     console.error(error);
   }
 };
+
+export const getMarsRoverPhotos = async (rover, selectedDate) => {
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${selectedDate}&api_key=${apiKey}`;
+  try {
+    const response = await axios.get(url);
+    // console.log(response);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
