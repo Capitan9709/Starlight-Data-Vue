@@ -97,7 +97,10 @@ function nextImage() {
                         <div v-if="ready == ''"></div>
                         <div v-else-if="ready == true && noDataAvaliable == false" class="w-1/2 bg-indigo-900 p-3 rounded-md">
                             <div class="image-container">
-                                <p class="camera-name"><b>Camera:</b> {{ roverData.photos[selectedImageIndex].camera.full_name }}</p>
+                                <div class="flex flex-row justify-between">
+                                    <p class="camera-name"><b>Camera:</b> {{ roverData.photos[selectedImageIndex].camera.full_name }}</p>
+                                    <p class="date"><b>Date: </b> {{selectedDate}}</p>
+                                </div>
                                 <img class="rounded" :src="roverData.photos[selectedImageIndex].img_src" alt="Rover Image" />
                                 <div class="py-2 image-nav flex flex-row justify-between">
                                     <button class="previous-button bg-indigo-600 py-1 px-2 rounded-md hover:bg-indigo-700" :disabled="selectedImageIndex === 0" @click="previousImage">
