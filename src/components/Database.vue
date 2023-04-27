@@ -77,7 +77,7 @@ function loadMoreImages() {
 
 <template>
     <Head/>
-        <div class="database pt-10 flex flex-col justify-center items-center">
+        <div class="database pt-16 md:pt-10 flex flex-col justify-center items-center">
               <!-- image of yesterday -->
                 <div class="flex flex-col items-center justify-center my-4">
                     <h2 class="text-2xl font-bold mt-4 text-center">Image from Yesterday</h2>
@@ -117,8 +117,8 @@ function loadMoreImages() {
                     <h2 class="text-2xl font-bold text-center">All Images from Database</h2>
                     <div class="flex flex-col items-center justify-center my-4">
                         <ul class="flex flex-row flex-wrap gap-3 justify-center items-start">
-                            <li v-for="(imagen, index) in getImages" :key="index" class="text-center bg-indigo-950 p-3 rounded-md w-1/3">
-                                <div class="flex flex-row justify-between border-b-2 border-gray-700">
+                            <li v-for="(imagen, index) in getImages" :key="index" class="text-center bg-indigo-950 p-3 rounded-md w-3/4 md:w-1/3">
+                                <div class="flex flex-col md:flex-row justify-between border-b-2 border-gray-700">
                                   <p><b>Title:</b> {{ imagen.titulo }}</p>
                                   <p><b>Date:</b> {{ imagen.fecha }}</p>  
                                 </div>  

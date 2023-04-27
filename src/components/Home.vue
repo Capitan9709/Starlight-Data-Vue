@@ -112,12 +112,12 @@ if (asteroidSnap.exists()) {
 
 <template>
   <Head />
-  <div class="home text-white flex flex-col items-center justify-center bg-local bg-no-repeat bg-center pt-10">
+  <div class="home text-white flex flex-col items-center justify-center bg-local bg-no-repeat bg-center pt-16 md:pt-10">
     
     <h1 class="text-2xl font-bold mt-4">Image of the Day</h1>
     <div class="flex flex-col items-center justify-center my-4">
-        <div class="py-2 px-2 bg-cover h-auto w-1/3 bg-indigo-950 rounded-md">
-          <img class="bg-cover bg-center rounded-md" alt="imagen astronomica del dia" :src="imagenDia">
+        <div class="py-2 px-2 bg-cover h-auto w-3/4 md:w-1/3 bg-indigo-950 rounded-md">
+          <img class="bg-cover bg-center rounded-md w-full" alt="imagen astronomica del dia" :src="imagenDia">
         </div>
         <h3 class="rounded px-2 mt-2 bg-indigo-950 font-semibold">{{tituloImagenDia}}</h3>
     </div>

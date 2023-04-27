@@ -4,7 +4,7 @@
 
 <template>
     <footer class="py-4 text-white bg-indigo-950">
-        <div id="footerContent" class="px-5 grid grid-cols-3">
+        <div id="footerContent" class="px-5 grid grid-rows-3 md:grid-cols-3">
             <div class="flex justify-center">
                 <p class="font-semibold">©Copyright - Starlight Data | 2023</p>
             </div>

@@ -95,9 +95,9 @@ function nextImage() {
                     </div>
                     <div class="rover-data mt-4 flex justify-center items-center">
                         <div v-if="ready == ''"></div>
-                        <div v-else-if="ready == true && noDataAvaliable == false" class="w-1/2 bg-indigo-900 p-3 rounded-md">
+                        <div v-else-if="ready == true && noDataAvaliable == false" class="w-3/4 md:w-1/2 bg-indigo-900 p-3 rounded-md">
                             <div class="image-container">
-                                <div class="flex flex-row justify-between">
+                                <div class="flex flex-col md:flex-row justify-between">
                                     <p class="camera-name"><b>Camera:</b> {{ roverData.photos[selectedImageIndex].camera.full_name }}</p>
                                     <p class="date"><b>Date: </b> {{selectedDate}}</p>
                                 </div>
