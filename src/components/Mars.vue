@@ -14,7 +14,7 @@ import Foot from './Foot.vue';
         <div class="max-w-5xl mx-auto flex flex-col justify-center items-center">
           <h2 class="text-4xl font-bold mb-4">Mars Weather</h2>
 
-          <iframe src='https://mars.nasa.gov/layout/embed/image/mslweather/' width='1000' height='570'  scrolling='no' frameborder='0'></iframe>
+          <iframe src='https://mars.nasa.gov/layout/embed/image/mslweather/' height='570'  scrolling='no' frameborder='0' class="w-full"></iframe>
 
         </div>
       </section>
